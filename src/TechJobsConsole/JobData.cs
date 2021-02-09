@@ -149,13 +149,18 @@ namespace TechJobsConsole
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
-            foreach (Dictionary<string, string> job in AllJobs)
+            foreach (Dictionary<string, string> row in AllJobs)
             {
-                foreach (KeyValuePair<string, string> column in job)
+                foreach (KeyValuePair<string, string> column in row)
                 {
-                    string aValue = column.Value;
+                    string aValue = column.Value.ToUpper();
 
-                    if (aValue.Contains(value.ToUpper())) ;
+                    if (aValue.Contains(value.ToUpper()))
+                    {
+                        jobs.Add(row);
+
+                        break;
+                    }
 
                 }
 
